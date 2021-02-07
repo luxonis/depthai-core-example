@@ -23,7 +23,9 @@ target_link_libraries(${TARGET_NAME}
 )
 
 # Set some errors
-target_compile_options(${TARGET_NAME} PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-Werror=return-type>)
+if(NOT MSVC)
+    target_compile_options(${TARGET_NAME} PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-Werror=return-type>)
+endif()
 
 # Set compiler features (c++11), and disables extensions (g++)
 set_property(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 11)
