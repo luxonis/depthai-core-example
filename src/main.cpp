@@ -17,22 +17,19 @@ int main(){
     xlinkOut->setStreamName("preview");
     colorCam->setInterleaved(true);
     colorCam->preview.link(xlinkOut->input);
-    
+
 
     try {
-        // Try connecting to device
+        // Try connecting to device and start the pipeline
         dai::Device device(pipeline);
 
         // Get output queue
         auto preview = device.getOutputQueue("preview");
 
-        // Start pipeline
-        device.startPipeline();
-
         cv::Mat frame;
         while (true) {
 
-            // Receive 'preview' frame from device 
+            // Receive 'preview' frame from device
             auto imgFrame = preview->get<dai::ImgFrame>();
 
             // Show the received 'preview' frame
@@ -45,7 +42,7 @@ int main(){
     } catch (const std::runtime_error& err) {
         std::cout << err.what() << std::endl;
     }
-    
+
 
     return 0;
 }
