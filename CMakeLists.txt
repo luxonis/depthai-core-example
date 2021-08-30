@@ -11,14 +11,14 @@ project(${TARGET_NAME})
 find_package(OpenCV REQUIRED)
 
 # Add source files
-add_executable("${TARGET_NAME}" 
+add_executable("${TARGET_NAME}"
     src/main.cpp
 )
 
 # Link with libraries
-target_link_libraries(${TARGET_NAME} 
-    PUBLIC 
-        depthai-core
+target_link_libraries(${TARGET_NAME}
+    PUBLIC
+        depthai::opencv
         ${OpenCV_LIBS} # optional, used for example
 )
 
