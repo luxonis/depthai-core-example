@@ -3,14 +3,8 @@
 CMake example project which serves as a template on how to quickly get started with C++ and depthai library
 
 ## Depthai library dependencies
-- cmake >= 3.10
-- libusb1 development package
+- cmake >= 3.4
 - C/C++14 compiler
- 
-MacOS: `brew install libusb`
-
-Linux: `sudo apt install libusb-1.0-0-dev`
-
 ## Submodules
 Make sure submodules are initialized and updated 
 ```
