@@ -21,6 +21,7 @@ If OpenVINO is installed then no further action is required.
 Otherwise install using one of the options below:
 
 - Ubuntu 20.04 - `sudo apt install libopencv-dev`
+- Fedora36+ - `sudo dnf install opencv-devel`
  - MacOS - `brew install opencv`
  - Or install from package / sources (Windows and other OSes)
 https://docs.opencv.org/master/d0/d3d/tutorial_general_install.html
