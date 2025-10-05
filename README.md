@@ -14,7 +14,8 @@ OpenCV is required to run the out-of-box example. You can install OpenCV using o
 - Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04 - `sudo apt install libopencv-dev`
 - Fedora36+ - `sudo dnf install opencv-devel`
 - MacOS - `brew install opencv`
-- Or install from package / sources (Windows and other OSes)
+- Windows - `choco install opencv` or from source or a pre-built package
+- Or install from package / sources (other OSes)
 https://docs.opencv.org/master/d0/d3d/tutorial_general_install.html
 
 
@@ -24,7 +25,10 @@ https://docs.opencv.org/master/d0/d3d/tutorial_general_install.html
 ```bash
 git clone https://github.com/luxonis/depthai-core.git --recursive && cd depthai-core
 cmake -Bbuild -S. -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/path/to/install/dir
-cmake --build build --target install --parallel 4
+cmake --build build --target install --config Release --parallel 4
+
+## Windows: You might have to provide path to OpenCV. If you installed OpenCV using choco, use
+cmake -Bbuild -S. -DOpenCV_DIR=C:/tools/opencv/build -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/path/to/install/dir
 ```
 
 Navigate to your example project's root folder.
@@ -32,7 +36,10 @@ Navigate to your example project's root folder.
 ### Build example project
 ```bash
 cmake -Bbuild -S. -DCMAKE_PREFIX_PATH=/path/to/install/dir
-cmake --build build --parallel 4
+cmake --build build --config Release --parallel 4
+
+## Windows: You might have to provide path to OpenCV. If you installed OpenCV using choco, use
+cmake -Bbuild -S. -DOpenCV_DIR=C:/tools/opencv/build -DCMAKE_PREFIX_PATH=/path/to/install/dir
 ```
 
 Make sure to change the `/path/to/install/dir` to a desired location on your filesystem.
